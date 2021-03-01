@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<pmd xmlns="http://pmd.sourceforge.net/report/2.0.0"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://pmd.sourceforge.net/report/2.0.0 http://pmd.sourceforge.net/report_2_0_0.xsd"
+    version="6.21.0" timestamp="2021-02-10T19:54:03.693">
+<file name="C:\Users\vanda\IdeaProjects\spring-boot-ui\spring-boot-modules\spring-boot-student-JDBCTemplate\src\test\java\com\vandana\crud\service\StudentServiceTest.java">
+<violation beginline="17" endline="64" begincolumn="8" endcolumn="1" rule="UnitTestMustFollowNamingConventionRule" ruleset="Baeldung custom pmd rules" package="com.vandana.crud.service" class="StudentServiceTest" priority="3">
+Unit test class names need to end in UnitTest, integration tests with IntegrationTest, etc 
+</violation>
+</file>
+</pmd>
