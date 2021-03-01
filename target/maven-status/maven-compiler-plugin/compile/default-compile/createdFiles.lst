@@ -1,6 +1,0 @@
-com\vandana\crud\Application.class
-com\vandana\crud\controllers\StudentController.class
-com\vandana\crud\entities\Student.class
-com\vandana\crud\repositories\JdbcStudentRepository.class
-com\vandana\crud\repositories\StudentRepository.class
-com\vandana\crud\service\StudentService.class
