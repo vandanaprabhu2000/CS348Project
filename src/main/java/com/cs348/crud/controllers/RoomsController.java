@@ -2,8 +2,9 @@ package com.cs348.crud.controllers;
 import javax.validation.Valid;
 
 
-import com.cs348.crud.entities.Student;
-import com.cs348.crud.service.StudentService;
+import com.cs348.crud.entities.Rooms;
+import com.cs348.crud.repositories.RoomsRepository;
+import com.cs348.crud.service.RoomsService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -11,7 +12,6 @@ import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
-import com.cs348.crud.repositories.StudentRepository;
 
 import java.util.*;
 @Controller
@@ -29,7 +29,7 @@ public class RoomsController {
         return "add-rooms";
     }
     @PostMapping("/addrooms")
-    public String addRoom(@Valid Student rooms, BindingResult result, Model model) {
+    public String addRoom(@Valid Rooms rooms, BindingResult result, Model model) {
         if (result.hasErrors()) {
             model.addAttribute("rooms", rooms);
             return "add-rooms";
@@ -75,7 +75,7 @@ public class RoomsController {
     }
     @GetMapping("/roomsDelete/{id}")
     public String deleteRoom(@PathVariable("id") Integer id, Model model) {
-        Rooms s = studentRepository.findById(id).orElseThrow(() -> new IllegalArgumentException("Invalid user id:" + id));
+        Rooms s = roomsRepository.findById(id).orElseThrow(() -> new IllegalArgumentException("Invalid user id:" + id));
         long startTime = new Date().getTime();
         roomsRepository.deleteById(s.getId());
         long endTime = new Date().getTime();
@@ -85,7 +85,7 @@ public class RoomsController {
     }
     @GetMapping("/roomsIndex")
     public String listRoom(Model model) {
-        List<Rooms> rooms = roomRepository.findAll();
+        List<Rooms> rooms = roomsRepository.findAll();
         model.addAttribute("rooms", rooms);
         return "roomsIndex";
     }

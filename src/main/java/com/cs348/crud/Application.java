@@ -11,7 +11,7 @@ import org.thymeleaf.templatemode.TemplateMode;
 import org.thymeleaf.templateresolver.ITemplateResolver;
 
 @SpringBootApplication
-@EnableJpaRepositories(basePackages="com.vandana.crud.repositories")
+@EnableJpaRepositories(basePackages="com.cs348.crud.repositories")
 @EnableTransactionManagement
 @EntityScan(basePackages="com.vandana.crud.entities")
 public class Application {

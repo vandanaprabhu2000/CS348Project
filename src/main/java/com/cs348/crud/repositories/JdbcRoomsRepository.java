@@ -17,7 +17,7 @@ public class JdbcRoomsRepository implements RoomsRepository {
     @Override
     public int update(Rooms rooms) throws Exception {
         return jdbcTemplate.update("update Rooms set number = ?, building = ?, maxCapacity = ?, where rooms_id = ?",
-                rooms.getNumber(), rooms.getBuilding(), rooms.getMaxCapacity()), rooms.getId());
+                rooms.getNumber(), rooms.getBuilding(), rooms.getMaxCapacity(), rooms.getId());
     }
     @Override
     public int deleteById(Integer id){
@@ -26,14 +26,14 @@ public class JdbcRoomsRepository implements RoomsRepository {
     @Override
     public List<Rooms> findAll(){
         return jdbcTemplate.query("select * from rooms", (rs, rowNum) -> new Rooms(rs.getInt("rooms_id"),
-                rs.getString("number"), rs.getString("building"), rs.getString("maxCapacity");
+                rs.getInt("number"), rs.getString("building"), rs.getInt("maxCapacity")
             )
         );
     }
     public Optional<Rooms> findById(Integer id){
         return jdbcTemplate.queryForObject("select * from rooms where rooms_id = ?", new Object[]{id}, (rs, rowNum) ->
-                Optional.of(new Rooms(rs.getInt("rooms_id"), rs.getString("number"), rs.getString("building"),
-                        rs.getString("maxCapacity");
+                Optional.of(new Rooms(rs.getInt("rooms_id"), rs.getInt("number"), rs.getString("building"),
+                        rs.getInt("maxCapacity")
                 ))
         );
     }

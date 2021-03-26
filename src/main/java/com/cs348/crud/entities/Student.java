@@ -47,7 +47,7 @@ public class Student {
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
-        if (!(o instanceof Student)) return false;
+        if (!(o instanceof Rooms)) return false;
 
         Student student = (Student) o;
 

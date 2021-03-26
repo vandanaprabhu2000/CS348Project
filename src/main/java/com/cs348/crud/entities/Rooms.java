@@ -13,26 +13,27 @@ import javax.validation.constraints.Size;
 
 @Entity
 @Table(name = "Rooms")
-public class Student {
+public class Rooms {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
     @NotNull
     @Size(min = 2, max = 30)
     private String building;
-    @number
+    @NotNull
     private int number;
-    @maxCapacity
+    @NotNull
+    @Size(min = 2, max = 30)
     private int maxCapacity;
 
-    public Rooms(int id, String building, int number, int maxCapacity) {
+    public Rooms(int id, int number, String building, int maxCapacity) {
         this.id = id;
         this.building = building;
         this.number = number;
         this.maxCapacity = maxCapacity;
     }
 
-    public Student() {
+    public Rooms() {
 
     }
 
@@ -56,16 +57,16 @@ public class Student {
 
         if (getId() != rooms.getId()) return false;
         if (!getBuilding().equals(rooms.getBuilding())) return false;
-        if (!getNumber().equals(rooms.getNumber())) return false;
-        return getMaxCapacity().equals(rooms.getMaxCapacity());
+        if (getNumber()  != rooms.getNumber()) return false;
+        return getMaxCapacity() != rooms.getMaxCapacity();
     }
 
     @Override
     public int hashCode() {
         int result = getId();
         result = 31 * result + getBuilding().hashCode();
-        result = 31 * result + getNumber().hashCode();
-        result = 31 * result + getMaxCapacity().hashCode();
+        result = 31 * result + getNumber();
+        result = 31 * result + getMaxCapacity();
         return result;
     }
 
@@ -82,16 +83,16 @@ public class Student {
     public void setBuilding(String building){
         this.building = building;
     }
-    public String getNumber(){
+    public int getNumber(){
         return this.number;
     }
-    public void setNumber(String number){
+    public void setNumber(int number){
         this.number = number;
     }
-    public String getMaxCapacity(){
+    public int getMaxCapacity(){
         return this.maxCapacity;
     }
-    public void setMaxCapacity(String maxCapacity){
+    public void setMaxCapacity(int maxCapacity){
         this.maxCapacity = maxCapacity;
     }
 }
