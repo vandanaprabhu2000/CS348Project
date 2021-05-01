@@ -49,3 +49,8 @@ replyType varchar(255) not null,
 comment varchar(255) not null,
 foreign key (meeting_id) references Meetings(id),
 foreign key (student_id) references Students(student_id));
+
+create unique index club_index on clubs(name, description);
+create unique index room_index on rooms(building, number, maxCapacity);
+create unique index student_index on students(name, email);
+create unique index meeting_index on meetings(time, duration, description);
