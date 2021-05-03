@@ -1,10 +1,8 @@
 package com.cs348.crud.service;
 import com.cs348.crud.entities.Student;
 import com.cs348.crud.repositories.StudentRepository;
-import com.cs348.crud.entities.Rooms;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-
 import java.util.List;
 import java.util.Optional;
 @Service
