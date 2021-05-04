@@ -3,6 +3,8 @@ import com.cs348.crud.entities.Rooms;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.stereotype.Repository;
+
+import javax.transaction.Transactional;
 import java.util.List;
 import java.util.Optional;
 @Repository
@@ -10,16 +12,19 @@ public class JdbcRoomsRepository implements RoomsRepository {
     @Autowired
     private JdbcTemplate jdbcTemplate;
     @Override
+    @Transactional
     public int save(Rooms rooms) throws Exception{
         return jdbcTemplate.update("insert into rooms (number, building, maxCapacity) values (?, ?)",
                 rooms.getNumber(), rooms.getBuilding(), rooms.getMaxCapacity());
     }
     @Override
+    @Transactional
     public int update(Rooms rooms) throws Exception {
         return jdbcTemplate.update("update Rooms set number = ?, building = ?, maxCapacity = ?, where rooms_id = ?",
                 rooms.getNumber(), rooms.getBuilding(), rooms.getMaxCapacity(), rooms.getId());
     }
     @Override
+    @Transactional
     public int deleteById(Integer id){
         return jdbcTemplate.update("delete from rooms where rooms_id = ?", id);
     }
