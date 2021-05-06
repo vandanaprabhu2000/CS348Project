@@ -51,6 +51,5 @@ foreign key (meeting_id) references Meetings(id),
 foreign key (student_id) references Students(student_id));
 
 create unique index club_index on clubs(club_id);
-create unique index room_index on rooms(room_id);
 create unique index student_index on students(student_id);
 create unique index meeting_index on meetings(meeting_id);
